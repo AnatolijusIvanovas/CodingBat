@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.stream.Collectors;
 /**
  * Created by Anatolijus on 2017-03-25.
  */
@@ -15,8 +16,9 @@ public class Functional2 {
     noNeg([-3, -3, 3, 3]) → [3, 3]
     noNeg([-1, -1, -1]) → []*/
     public List<Integer> noNeg(List<Integer> nums) {
-
-        return nums;
+        return nums.stream()
+                .filter(n -> n >= 0)
+                .collect(Collectors.toList());
     }
 
     /*Functional-2 > no9
