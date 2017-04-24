@@ -27,8 +27,9 @@ public class Functional2 {
     no9([9, 19, 29, 3]) → [3]
     no9([1, 2, 3]) → [1, 2, 3]*/
     public List<Integer> no9(List<Integer> nums) {
-
-        return nums;
+        return nums.stream()
+                .filter(n -> n % 10 != 9)
+                .collect(Collectors.toList());
     }
 
     /*Functional-2 > noTeen
