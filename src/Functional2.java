@@ -61,8 +61,9 @@ public class Functional2 {
     noZ(["hziz", "hzello", "hi"]) → ["hi"]
     noZ(["hello", "howz", "are", "youz"]) → ["hello", "are"]*/
     public List<String> noZ(List<String> strings) {
-
-        return strings;
+        return strings.stream()
+                .filter(s -> s.indexOf("z") == -1)
+                .collect(Collectors.toList());
     }
 
     /*Functional-2 > no34
