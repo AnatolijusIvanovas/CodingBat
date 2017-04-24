@@ -83,8 +83,8 @@ public class Functional2 {
     noYY(["a", "b", "cy"]) → ["ay", "by"]
     noYY(["xx", "ya", "zz"]) → ["xxy", "yay", "zzy"]*/
     public List<String> noYY(List<String> strings) {
-
-        return strings;
+        return strings.stream()
+                .collect(Collectors.toList());
     }
 
     /*Functional-2 > two2
@@ -93,8 +93,8 @@ public class Functional2 {
     two2([2, 6, 11]) → [4]
     two2([0]) → [0]*/
     public List<Integer> two2(List<Integer> nums) {
-
-        return nums;
+        return nums.stream()
+                .collect(Collectors.toList());
     }
 
     /*Functional-2 > square56
@@ -103,8 +103,8 @@ public class Functional2 {
     square56([1]) → [11]
     square56([2]) → [14]*/
     public List<Integer> square56(List<Integer> nums) {
-
-        return nums;
+        return nums.stream()
+                .collect(Collectors.toList());
     }
 
 }
