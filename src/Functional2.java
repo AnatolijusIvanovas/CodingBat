@@ -38,8 +38,9 @@ public class Functional2 {
     noTeen([1, 14, 1]) → [1, 1]
     noTeen([15]) → []*/
     public List<Integer> noTeen(List<Integer> nums) {
-
-        return nums;
+        return nums.stream()
+                .filter(n -> n < 13 || n > 19)
+                .collect(Collectors.toList());
     }
 
     /*Functional-2 > noLong
@@ -48,8 +49,8 @@ public class Functional2 {
     noLong(["a", "bbb", "cccc"]) → ["a", "bbb"]
     noLong(["cccc", "cccc", "cccc"]) → []*/
     public List<String> noLong(List<String> strings) {
-
-        return strings;
+        return strings.stream()
+                .collect(Collectors.toList());
     }
 
     /*Functional-2 > noZ
