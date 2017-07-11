@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 /**
  * Created by Anatolijus on 2017-03-25.
@@ -115,14 +116,14 @@ public class Functional1 {
     noX(["xxax", "xbxbx", "xxcx"]) → ["a", "bb", "c"]
     noX(["x"]) → [""]*/
     public List<String> noX(List<String> strings) {
-        strings.replaceAll(s -> noXstr(s));
+        strings.replaceAll(s -> func.apply(s));
         return strings;
     }
 
-    public String noXstr(String str) {
-        if (str.equals("")) return str;
-        if (str.charAt(0) == 'x') return noXstr(str.substring(1));
-        else return str.charAt(0) + noXstr(str.substring(1));
-    }
+    final Function<String, String> func = s -> {
+        if (s.equals("")) return s;
+        if (s.charAt(0) == 'x') return this.func.apply(s.substring(1));
+        else return s.charAt(0) + this.func.apply(s.substring(1));
+    };
 
 }
