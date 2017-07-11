@@ -115,8 +115,14 @@ public class Functional1 {
     noX(["xxax", "xbxbx", "xxcx"]) → ["a", "bb", "c"]
     noX(["x"]) → [""]*/
     public List<String> noX(List<String> strings) {
-
+        strings.replaceAll(s -> noXstr(s));
         return strings;
+    }
+
+    public String noXstr(String str) {
+        if (str.equals("")) return str;
+        if (str.charAt(0) == 'x') return noXstr(str.substring(1));
+        else return str.charAt(0) + noXstr(str.substring(1));
     }
 
 }
